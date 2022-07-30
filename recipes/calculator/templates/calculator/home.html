@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Рецепты блюд</title>
+</head>
+<body>
+    <h3>Выберите рецепт</h2>
+    <h4>дополните строку адреса наименованием блюда</h4>
+    {% for title, url in pages.items %}
+        <a>{{ title }} {{ url }}</a>
+        <br>
+    {% endfor %}
+    кол-во порций "?servings="
+</body>
+</html>
