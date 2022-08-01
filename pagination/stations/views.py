@@ -30,8 +30,8 @@ def bus_stations(request):
     page = pagiantor.get_page(current_page)
     
     context = {
-         'bus_stations': page.name,
-         'page': ...,
+         'bus_stations': page,
+    #     'page': current_page,
     }
     return render(request, 'stations/index.html', context)
  
