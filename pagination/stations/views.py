@@ -24,14 +24,18 @@ def load_stations(fname: str):
 def bus_stations(request):
     # получите текущую страницу и передайте ее в контекст
     # также передайте в контекст список станций на странице
-
+    
+    if len(BUSSTATIONS_LIST) == 0:
+        load_stations(BUS_STATION_CSV)
+        
+    current_page = request.GET.get('page', '1')
+    current_page = int(current_page)
     pagiantor = Paginator(BUSSTATIONS_LIST, 10)
-    current_page = request.GET.get('page', 1)
     page = pagiantor.get_page(current_page)
     
     context = {
          'bus_stations': page,
-    #     'page': current_page,
+         'page': page,
     }
     return render(request, 'stations/index.html', context)
  
